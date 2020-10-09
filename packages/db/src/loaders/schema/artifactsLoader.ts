@@ -53,11 +53,6 @@ type BytecodeInfo = {
   bytes?: string;
 };
 
-type BytecodesObject = {
-  bytecodes: Array<BytecodeInfo>;
-  callBytecodes: Array<BytecodeInfo>;
-};
-
 type IdObject = {
   id: string;
 };
@@ -149,7 +144,7 @@ export class ArtifactsLoader {
     );
 
     //set new projectNameHeads based on name records added
-    const projectNamesResult = await this.db.query(AssignProjectNames, {
+    await this.db.query(AssignProjectNames, {
       projectNames
     });
   }
